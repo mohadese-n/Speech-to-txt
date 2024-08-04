@@ -10,6 +10,7 @@ import LinkRecord from './components/LinkRecord';
 import User from './components/User';
 import TimeText from './components/TimeText';
 import SimpleText from './components/SimpleText';
+import { AppProvider } from './context/AppContext';
 
 const App = () => {
   const [file, setFile] = useState(null);
@@ -25,6 +26,7 @@ const App = () => {
         <div className='w-100 d-flex flex-column'>
           
         <br />
+        <AppProvider>
         <Routes>
           <Route path='/' element={<StableComponent />} >
             <Route path='/' element={<Record />} />
@@ -34,11 +36,12 @@ const App = () => {
             </Route>
             <Route path='/link' element={<LinkRecord />} />
           </Route>
-          <Route path='/archive' element={<Archive file={file} />} >
+          <Route path='/archive' element={<Archive />} >
               <Route path = '/archive/simpletext' element={<SimpleText />} />
               <Route path ='/archive/timetext' element={<TimeText />} />
           </Route>
         </Routes>
+       </AppProvider>
       </div>
       <User />
     </div>

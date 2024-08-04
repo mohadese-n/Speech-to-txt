@@ -1,10 +1,24 @@
 import React, { useState } from 'react';
 import { GREEN } from './helpers/color';
+import { useContext,useEffect } from 'react';
+import { AppContext } from '../context/AppContext';
+import axios from 'axios';
 
 const Record = () =>{
-  const [transcript, setTranscript] = useState('');
+  // const [transcript, setTranscript] = useState('');
+  const { transcript, setTranscript } = useContext(AppContext);
   const [isListening, setIsListening] = useState(false);
-
+  useEffect(() => {
+    if (transcript) {
+  axios.post('http://localhost:9000/transcripts', { text: transcript })
+  .then(response => {
+      console.log('Data saved:', response.data);
+  })
+  .catch(error => {
+      console.error('Error saving data:', error);
+  });
+}
+}, [transcript]);
   const handleListen = () => {
     if ('webkitSpeechRecognition' in window) {
       const recognition = new window.webkitSpeechRecognition();

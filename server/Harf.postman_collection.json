@@ -13,6 +13,12 @@
       "time": "3:20"
     }
   ],
+  "transcripts": [
+    {
+      "text": "سلام  خوبی چه خبر  این یک فایل تست است ",
+      "id": 1
+    }
+  ],
   "info": {
     "_postman_id": "4bd3db89-47b9-44b4-a8d2-95ee8ae55e47",
     "name": "Harf",

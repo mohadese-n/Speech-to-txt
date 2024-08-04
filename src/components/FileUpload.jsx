@@ -53,7 +53,7 @@ const FileUpload = () =>{
                   {
                       file?
                     <><div>{file.name}</div>
-                    <button type="submit">آپلود</button>
+                    {/* <button type="submit">آپلود</button> */}
                     {message && <p>{message}</p>}
                     </>
                       :
